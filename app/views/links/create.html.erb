@@ -1,0 +1,9 @@
+<%= link_to "Add Another Link", new_links_path %>
+<% all_link = Link.includes(:user).all %>
+<ul>
+<% all_link.each do |p| %>
+<li>
+   Link Name: "<%= p.title  %>" <%= p.url %>
+   Recommend by <%= p.user %>
+</li>
+<% end %>
