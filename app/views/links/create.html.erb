@@ -1,7 +1,5 @@
 <%= link_to "Add Another Link", new_links_path %>
 
-<%= will_paginate @links %>
-
 <ul>
 <% @links.each do |p| %>
 <li>
@@ -11,3 +9,5 @@
 </ br> 
 <%= link_to "comments", links_path(:id => p.id) %>
 <% end %>
+
+<%= will_paginate @links %>
