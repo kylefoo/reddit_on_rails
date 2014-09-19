@@ -1,10 +1,3 @@
-<h2>I AMA Homepage</h2>
+<h2>Ruby App 0.1</h2>
 <%= link_to "Add A Link", new_links_path %>
-<% all_link = Link.includes(:user).all %>
-<ul>
-<% all_link.each do |p| %>
-<li>
-   Link Name: "<%= p.title  %>" <%= p.url %>
-   Recommend by <%= p.user %>
-</li>
-<% end %>
+

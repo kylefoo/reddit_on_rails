@@ -1,9 +1,13 @@
 <%= link_to "Add Another Link", new_links_path %>
-<% all_link = Link.includes(:user).all %>
+
+<%= will_paginate @links %>
+
 <ul>
-<% all_link.each do |p| %>
+<% @links.each do |p| %>
 <li>
    Link Name: "<%= p.title  %>" <%= p.url %>
    Recommend by <%= p.user %>
 </li>
+</ br> 
+<%= link_to "comments", links_path(:id => p.id) %>
 <% end %>

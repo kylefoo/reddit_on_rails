@@ -1,5 +1,6 @@
 class LinksController < ApplicationController
   def show
+
   end
   
   def new
@@ -12,9 +13,13 @@ class LinksController < ApplicationController
 
   def create
     params.permit!
-  	@link = Link.new(params[:link])
+    params[:page] ||= 1
+    params[:per_page] ||=3
 
-  	respond_to do |format|
+    @link = Link.new(params[:link])
+    @links = Link.paginate(:page => params[:page])
+  	
+    respond_to do |format|
   	  if @link.save
   	  	format.html { render :action => 'create', :notice => 'link was successfully added'}
   	  else
@@ -24,8 +29,8 @@ class LinksController < ApplicationController
   end
   
   private
-  def link_params
-    params.require(:title).permit(:user, :url)
-  end
+  #def link_params
+  #  params.require(:title).permit(:user, :url)
+  #end
 
 end
