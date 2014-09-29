@@ -1,3 +1,15 @@
 <h2>Ruby App 0.1</h2>
-<%= link_to "Add A Link", new_links_path %>
+<%= link_to "Add A Link", new_link_path %>
 
+
+<ul>
+<% @links.each do |p| %>
+<li>
+   Link Name: "<%= p.title  %>" <%= p.url %>
+   Recommend by <%= p.user %>
+</li>
+</ br> 
+<%= link_to "comments", link_path(:id => p.id) %>
+<% end %>
+
+<%= will_paginate @links %>

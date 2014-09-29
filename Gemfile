@@ -41,7 +41,10 @@ gem 'devise'
 gem 'will_paginate', '~> 3.0', group: :development
 
 gem 'protected_attributes'
+#<<<<<<< HEAD
 
+#=======
+#>>>>>>> 708757a3f2487d870ed1a4d822ef8381f4e55262
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

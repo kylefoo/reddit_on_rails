@@ -1,6 +1,7 @@
 class LinksController < ApplicationController
   def show
-
+    @link = Link.find(params[:id])
+    @comment = Comment.new
   end
   
   def new
@@ -13,11 +14,9 @@ class LinksController < ApplicationController
 
   def create
     params.permit!
-    params[:page] ||= 1
-    params[:per_page] ||=3
 
     @link = Link.new(params[:link])
-    @links = Link.paginate(:page => params[:page], :per_page =>params[:per_page])
+    #@links = Link.paginate(:page => params[:page], :per_page =>params[:per_page])
   	
     respond_to do |format|
   	  if @link.save
