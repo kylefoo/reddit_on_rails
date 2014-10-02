@@ -11,6 +11,14 @@
     </div>
   <% end %>
 
+<h2>  Comments: </h2>
+<div>
+<% @link.comments.each do |comment| %>
+  <p><%= comment.message %> </p>
+<% end %>
+</div>
+
+
 <%= form_for(@comment) do |f| %>
   <div class="field">
     <%= f.label :messgae %><br />

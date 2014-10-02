@@ -6,7 +6,7 @@ class LinksController < ApplicationController
   
   def new
   	@link = Link.new
-
+    @user = current_user
   	respond_to do |format|
   	  format.html
   	 end
@@ -14,10 +14,9 @@ class LinksController < ApplicationController
 
   def create
     params.permit!
-
+    
     @link = Link.new(params[:link])
-    #@links = Link.paginate(:page => params[:page], :per_page =>params[:per_page])
-  	
+    
     respond_to do |format|
   	  if @link.save
   	  	format.html { render :action => 'create', :notice => 'link was successfully added'}

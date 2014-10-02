@@ -8,8 +8,15 @@
    Link Name: "<%= p.title  %>" <%= p.url %>
    Recommend by <%= p.user %>
 </li>
-</ br> 
+<br /> 
 <%= link_to "comments", link_path(:id => p.id) %>
+<br /> 
+<%= link_to "+", votes_path(:vote => {:link_id => p.id, :up => true}), :method => :post %>
+<%= link_to "-", votes_path(:vote => {:link_id => p.id, :up => false}), :method => :post %>
+<br />
+Up Votes: <%= p.votes.where(:up => true).count %>
+Down Votes: <%= p.votes.where(:up => false).count %>
+<p>
 <% end %>
 
 <%= will_paginate @links %>
