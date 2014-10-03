@@ -1,6 +1,4 @@
-<h2>Ruby App 0.1</h2>
-<%= link_to "Add A Link", new_link_path %>
-
+<h2>Top links</h2>
 
 <ul>
 <% @links.each do |p| %>
@@ -18,5 +16,8 @@ Up Votes: <%= p.votes.where(:up => true).count %>
 Down Votes: <%= p.votes.where(:up => false).count %>
 <p>
 <% end %>
+
+<h3><%= link_to "Add a link", new_link_path %></h3>
+<p>
 
 <%= will_paginate @links %>
