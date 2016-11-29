@@ -64,4 +64,7 @@ Rails.application.routes.draw do
   resources :links
 
   resources :votes
+
+  get 'search' => 'search#index'
+  
 end

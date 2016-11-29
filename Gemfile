@@ -5,14 +5,15 @@ ruby '2.1.2'
 gem 'rails', '4.1.5'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
+
 group :development do
-	gem 'sqlite3'
+	gem 'pg'
+        
 end
 
 group :production do
 	gem 'pg'
 	gem 'rails_12factor'
-	gem 'will_paginate', '~> 3.0'
 end
 
 # Use SCSS for stylesheets
@@ -38,13 +39,12 @@ gem 'spring',        group: :development
 
 gem 'devise'
 
-gem 'will_paginate', '~> 3.0', group: :development
+gem 'will_paginate', '~> 3.0'
 
 gem 'protected_attributes'
-#<<<<<<< HEAD
 
-#=======
-#>>>>>>> 708757a3f2487d870ed1a4d822ef8381f4e55262
+gem 'textacular', require: 'textacular/rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
